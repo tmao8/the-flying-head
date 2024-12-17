@@ -120,7 +120,7 @@ def game_over_screen():
 
 def reset_game():
     global flying_head, flying_head_velocity, obstacles, coal_traps, acorns, score, last_spawn_time
-    flying_head = pygame.Rect(100, HEIGHT // 2, 50, 50)
+    flying_head = pygame.Rect(100, HEIGHT // 2, 100, 100)
     flying_head_velocity = 0
     obstacles = []
     coal_traps = []
