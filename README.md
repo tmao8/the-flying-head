@@ -14,8 +14,8 @@ Follow these steps to install and run the game:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/flying-head-game.git
-   cd flying-head-game
+   git clone https://github.com/tmao8/the-flying-head.git
+   cd the-flying-head
    ```
 
 2. **Set Up a Virtual Environment (Optional):**
