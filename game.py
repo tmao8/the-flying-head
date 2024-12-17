@@ -98,6 +98,36 @@ def show_title_screen():
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 return
 
+def game_over_screen():
+    screen.fill(BLACK)
+    draw_text("Game Over", HEIGHT // 2 - 50)
+    draw_text("Press R to Restart or Q to Quit",HEIGHT // 2 + 50)
+    pygame.display.flip()
+
+    waiting = True
+    while waiting:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    waiting = False
+                    running = True
+                elif event.key == pygame.K_q:
+                    pygame.quit()
+                    sys.exit()
+
+def reset_game():
+    global flying_head, flying_head_velocity, obstacles, coal_traps, acorns, score, last_spawn_time
+    flying_head = pygame.Rect(100, HEIGHT // 2, 50, 50)
+    flying_head_velocity = 0
+    obstacles = []
+    coal_traps = []
+    acorns = []
+    score = 0
+    last_spawn_time = pygame.time.get_ticks()
+
 show_title_screen()
 
 # Game Loop
@@ -182,6 +212,11 @@ while running:
     pygame.display.flip()
 
     clock.tick(FPS)
+
+    if not running:
+        reset_game()
+        game_over_screen()
+        running = True
 
 pygame.quit()
 sys.exit()
