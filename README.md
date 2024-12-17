@@ -36,7 +36,7 @@ Follow these steps to install and run the game:
 1. **Start the Game:**
    Run the following command:
    ```bash
-   python main.py
+   python game.py
    ```
 
 2. **Gameplay Controls:**
